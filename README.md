@@ -19,14 +19,10 @@ The use of Dill is to combat any session exhaustions that may occur on the appli
 
 ## Usage
 
-To import libraries, you can use the following:
-
-```from mwg import *
-```
-
 To open and close a session:
 
-```auth = authenticate(hostname='appliancehost')
+```from mwg import *
+auth = authenticate(hostname='appliancehost')
 auth.createSession(username='yourusername', password='yourpassword')
 auth.destroySession()
 ```
