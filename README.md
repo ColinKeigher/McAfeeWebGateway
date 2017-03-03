@@ -13,4 +13,32 @@ You will require the following Python libraries:
 
  * Requests
  * XMLtoDict
+ * Dill (Pickle replacement)
 
+The use of Dill is to combat any session exhaustions that may occur on the appliance.
+
+## Usage
+
+To import libraries, you can use the following:
+
+```from mwg import *
+```
+
+To open and close a session:
+
+```auth = authenticate(hostname='appliancehost')
+auth.createSession(username='yourusername', password='yourpassword')
+auth.destroySession()
+```
+
+To view lists:
+
+```l = listdata(auth=auth.session, hostname=hostname)
+l.listData()
+```
+
+To view a specific list:
+
+```l = listdata(auth=auth.session, hostname=hostname)
+l.listID(value='listnamehere')
+```
