@@ -1,5 +1,5 @@
 # McAfeeWebGateway
-Python-based API for interfacing with the McAfee Web Gateway REST API
+Python-based library for interfacing with the McAfee Web Gateway REST API
 
 This is a Python-based library for interfacing with McAfee's Web Gateway. Features include the following:
 
@@ -9,7 +9,7 @@ This is a Python-based library for interfacing with McAfee's Web Gateway. Featur
 * Inserting into lists
 * Saving data
 
-This has been tested against 7.4 of the appliance and works with Python 2.7.
+This has been tested against version 7.4 of the appliance and works with Python 2.7.
 
 You will require the following Python libraries:
 
@@ -53,3 +53,5 @@ And to save any changes after insertion:
 ##Comments
 
 In testing the McAfee Web Gateway's API is fairly slow but not as slow as the functions provided by the web application itself. Do expect that if you queue up any blocks that the actions to results may be a bit slower than you desire.
+=======
+    l.listID(value='listnamehere')
