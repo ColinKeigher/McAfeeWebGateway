@@ -51,35 +51,3 @@ class listdata(object):
         if entry is not None:
             string = '{}/entry/{}/insert'.format(string, entry)
         return a.createAppendURL(string=string)
-
-'''
-<entry xmlns="http://www.w3org/2011/Atom">
-    <content type="application/xml">
-        <listEntry>
-            <entry>{}</entry>
-            <description>{}</description>
-        </listEntry>
-    </content> 
-</entry>
-
-<entry xmlns="http://www.w3org/2011/Atom">
-    <content type="application/xml">
-        <listEntry>
-            <entry>*somehost.com*</entry>
-            <description>Some description </description>
-        </listEntry>
-    </content> 
-</entry>
-
-<entry>
-    <id>1</id>
-    <title>List entry at position 1</title>
-    <link href="https://172.31.123.12:4712/Konfigurator/REST/list/com.scur.type.regex.15654/entry/1" rel="self"/>
-    <content>
-        <listEntry>
-            <entry>*problemkaputt.de*</entry>
-            <description>Testing...</description>
-        </listEntry>
-    </content>
-</entry>
-'''
