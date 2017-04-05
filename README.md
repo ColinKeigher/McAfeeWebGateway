@@ -1,7 +1,7 @@
 # McAfeeWebGateway
 Python-based library for interfacing with the McAfee Web Gateway REST API
 
-This is a Python-based library for interfacing with McAfee's Web Gateway. Features include the following:
+Features include the following:
 
 * Listing appliances
 * Listing lists
