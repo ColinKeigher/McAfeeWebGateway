@@ -4,5 +4,8 @@ def parseData(data):
     try:
         return xmltodict.parse(data)
     except:
-        raise Exception('Invalid data', data)
+        if len(data.split()) is 0:
+            return None
+        else:
+            raise Exception('Invalid XML data', data)
 

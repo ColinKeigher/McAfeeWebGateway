@@ -29,12 +29,57 @@ class listdata(object):
         p = process(data=parseData(r.text))
         return p.processListID()
 
-    def listIDInsert(self, value, p):
-        pass
+    def listIDInsert(self, value, entry, description, position=1):
+        u = self.listURL(value=value, entry=position)
+        i = '''<entry xmlns="http://www.w3org/2011/Atom">
+                    <content type="application/xml">
+                        <listEntry>
+                            <entry>{}</entry>
+                            <description>{}</description>
+                        </listEntry>
+                    </content> 
+                </entry>'''
+        i = i.format(entry, description)
+        r = self.auth.post(u, data=i, headers={'Content-Type': 'application/xml'})
+        return parseData(r.text)
 
-    def listURL(self, value=None):
+    def listURL(self, value=None, entry=None):
         a = authenticate(hostname=self.hostname, port=self.port, https=self.https)
         string = 'list'
         if value is not None:
             string = '{}/{}'.format(string, value)
+        if entry is not None:
+            string = '{}/entry/{}/insert'.format(string, entry)
         return a.createAppendURL(string=string)
+
+'''
+<entry xmlns="http://www.w3org/2011/Atom">
+    <content type="application/xml">
+        <listEntry>
+            <entry>{}</entry>
+            <description>{}</description>
+        </listEntry>
+    </content> 
+</entry>
+
+<entry xmlns="http://www.w3org/2011/Atom">
+    <content type="application/xml">
+        <listEntry>
+            <entry>*somehost.com*</entry>
+            <description>Some description </description>
+        </listEntry>
+    </content> 
+</entry>
+
+<entry>
+    <id>1</id>
+    <title>List entry at position 1</title>
+    <link href="https://172.31.123.12:4712/Konfigurator/REST/list/com.scur.type.regex.15654/entry/1" rel="self"/>
+    <content>
+        <listEntry>
+            <entry>*problemkaputt.de*</entry>
+            <description>Testing...</description>
+        </listEntry>
+    </content>
+</entry>
+'''
